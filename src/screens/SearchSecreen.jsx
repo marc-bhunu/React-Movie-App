@@ -9,12 +9,20 @@ export const SearchSecreen = () => {
     const [result, setResult] = useState([]);
    
     const handleSearch = () => {
-        const data = SearchMovie(search)
-        setResult(data)
-       
-    } 
-    console.log('Result', result)
+        SearchMovie(search)
+        .then((data)=>{
+            setResult(data)
+           
+            console.log('response', response)
+            console.log('result', result)
 
+        }
+    )
+    
+    } 
+
+
+    const response = result.map(r=>(<p>{r.Title}</p>))
     return (
         <>
         <Header/>
@@ -32,6 +40,8 @@ export const SearchSecreen = () => {
                 Search
             </Button>
         </Form>
+
+        <h1>{response}</h1>
         </Container>
     </>
     )
