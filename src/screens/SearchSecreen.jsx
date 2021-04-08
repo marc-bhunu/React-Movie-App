@@ -1,5 +1,5 @@
-import React,{useState} from 'react'
-import { Form, Button, FormControl, Container} from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Form, Button, FormControl, Container } from 'react-bootstrap'
 import { Header } from '../components'
 import { SearchMovie } from '../services'
 
@@ -7,22 +7,13 @@ export const SearchSecreen = () => {
 
     const [search, setSearch] = useState('');
     const [result, setResult] = useState([]);
-   
-    const handleSearch = () => {
-        SearchMovie(search)
-        .then((data)=>{
-            setResult(data)
-           
-            console.log('response', response)
-            console.log('result', result)
 
-        }
-    )
-    
-    } 
+    const handleSearch = async () => {
+        const data = await SearchMovie(search)
+        setResult(data)
+    }
+    const response = result.map(r=>(<p key={r.imdbID}>{r.Title}</p>))
 
-
-    const response = result.map(r=>(<p>{r.Title}</p>))
     return (
         <>
         <Header/>
