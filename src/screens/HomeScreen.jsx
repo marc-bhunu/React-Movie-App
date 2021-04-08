@@ -9,7 +9,7 @@ export const HomeScreen = () => {
         <>
             <Header />
             <main>
-                <h1>Home Screen</h1>3
+                <h1>Home Screen</h1>
             </main>
             <Footer />
         </>
