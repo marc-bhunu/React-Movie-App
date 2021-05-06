@@ -1,5 +1,5 @@
 export * from './Footer'
 export * from './Header'
-export * from './SearchBar'
 export * from './Login'
 export * from './Logout'
+export * from './Cards'

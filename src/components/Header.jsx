@@ -1,5 +1,5 @@
 import { Navbar, Nav} from "react-bootstrap"
-import { SearchBar, Login, Logout } from "../components"
+import { Login, Logout } from "../components"
 import { LinkContainer } from "react-router-bootstrap"
 import { useKeyCloak } from "../hooks"
 
@@ -22,8 +22,10 @@ export const Header = () => {
                     <LinkContainer to="/favourite">
                         <Nav.Link>Favs <i className="far fa-thumbs-up"></i></Nav.Link>
                     </LinkContainer>
+                    <LinkContainer to="/search">
+                        <Nav.Link>Search <i className="fas fa-search"></i></Nav.Link>
+                    </LinkContainer>
                 </Nav>
-                <SearchBar />
 
                 { (!isAuthenticated)? <Login keycloak={keycloak}/>: <Logout keycloak={keycloak}/> }
 
